@@ -10,12 +10,12 @@ import net.minecraft.util.Identifier;
 
 public class PSTBlockEntities {
 
-    public static BlockEntityType<TreasureChestBlockEntity> TREASURE_CHEST_TYPE;
+    public static BlockEntityType<TreasureBarrelBlockEntity> TREASURE_BARREL_TYPE;
 
     public static void registerPSTBlockEntityTypes() {
-        TREASURE_CHEST_TYPE = Registry.register(
-                Registries.BLOCK_ENTITY_TYPE, new Identifier(Constants.MOD_ID, "treasure_chest_be"),
-                FabricBlockEntityTypeBuilder.create(TreasureChestBlockEntity::new, PSTBlocks.TREASURE_CHEST)
+        TREASURE_BARREL_TYPE = Registry.register(
+                Registries.BLOCK_ENTITY_TYPE, new Identifier(Constants.MOD_ID, "treasure_barrel_be"),
+                FabricBlockEntityTypeBuilder.create(TreasureBarrelBlockEntity::new, PSTBlocks.TREASURE_BARREL)
                         .build()
         );
     }

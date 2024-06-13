@@ -1,6 +1,8 @@
 package io.github.scaredsmods.piratesntreasure.block.custom;
 
-import io.github.scaredsmods.piratesntreasure.block.entity.TreasureChestBlockEntity;
+import com.mojang.serialization.MapCodec;
+import io.github.scaredsmods.piratesntreasure.block.entity.TreasureBarrelBlockEntity;
+import io.github.scaredsmods.piratesntreasure.config.PSTConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -26,18 +28,24 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TreasureChestBlock extends BlockWithEntity {
+public class TreasureBarrelBlock extends BlockWithEntity {
 
-    public TreasureChestBlock(Settings settings) {
+    public TreasureBarrelBlock(Settings settings) {
         super(settings);
     }
+    public static final MapCodec<TreasureBarrelBlock> CODEC = TreasureBarrelBlock.createCodec(TreasureBarrelBlock::new);
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
+    }
+
     public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty OPEN = Properties.OPEN;
 
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new TreasureChestBlockEntity(pos,state);
+        return new TreasureBarrelBlockEntity(pos,state);
     }
 
     // When extending from BlockWithEntity, it would be invisible by default.
@@ -52,12 +60,16 @@ public class TreasureChestBlock extends BlockWithEntity {
             return ActionResult.SUCCESS;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof TreasureChestBlockEntity) {
-            player.openHandledScreen((TreasureChestBlockEntity)blockEntity);
+        if (blockEntity instanceof TreasureBarrelBlockEntity) {
+            player.openHandledScreen((TreasureBarrelBlockEntity)blockEntity);
             player.incrementStat(Stats.OPEN_BARREL);
             PiglinBrain.onGuardedBlockInteracted(player, true);
         }
         return ActionResult.CONSUME;
+    }
+
+    public static void test () {
+
     }
 
     @Override
@@ -76,8 +88,8 @@ public class TreasureChestBlock extends BlockWithEntity {
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof TreasureChestBlockEntity) {
-            ((TreasureChestBlockEntity)blockEntity).tick();
+        if (blockEntity instanceof TreasureBarrelBlockEntity) {
+            ((TreasureBarrelBlockEntity)blockEntity).tick();
         }
     }
 
@@ -86,8 +98,8 @@ public class TreasureChestBlock extends BlockWithEntity {
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         BlockEntity blockEntity;
-        if (itemStack.hasCustomName() && (blockEntity = world.getBlockEntity(pos)) instanceof TreasureChestBlockEntity) {
-            ((TreasureChestBlockEntity)blockEntity).setCustomName(itemStack.getName());
+        if (itemStack.hasCustomName() && (blockEntity = world.getBlockEntity(pos)) instanceof TreasureBarrelBlockEntity) {
+            ((TreasureBarrelBlockEntity)blockEntity).setCustomName(itemStack.getName());
         }
     }
 

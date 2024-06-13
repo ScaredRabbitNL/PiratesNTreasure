@@ -6,6 +6,17 @@
   "item.piratesntreasure.diamond_machete": "Diamond Machete",
   "item.piratesntreasure.netherite_machete": "Netherite Machete",
   "item.piratesntreasure.pirate_hat": "Pirate Hat",
-  "item.piratesntreasure.eye_patch": "Eye patch"
+  "item.piratesntreasure.eye_patch": "Eye patch",
+
+  "block.piratesntreasure.treasure_barrel": "Treasure Barrel",
+
+  "itemgroup.pst.items": "PST Items",
+  "itemgroup.pst.blocks": "PST Blocks",
+
+  "container.treasure_barrel": "Treasure Barrel",
+  "text.config.PSTConfig.title": "Pirate's Configuration",
+  "text.config.PSTConfig.section.world-gen": "World Generation Options",
+  "text.config.PSTConfig.category.worldGenNest": "World Generation",
+  "text.config.PSTConfig.option.worldGenNest.isGeneralWorldGenEnabled": "isGeneralWorldGenEnabled"
 
 }

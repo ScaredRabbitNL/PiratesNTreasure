@@ -25,6 +25,10 @@ repositories {
 		name = "Ladysnake Libs"
 		url = 'https://maven.ladysnake.org/releases'
 	}
+	maven { url 'https://maven.blamejared.com' }
+	maven { url 'https://maven.wispforest.io' }
+
+
 }
 
 fabricApi {
@@ -40,6 +44,14 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
+
+	annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
+	// only if you plan to use owo-config
+
+	modLocalRuntime("com.terraformersmc:modmenu:${modmenu_version}")
+
+
+
 }
 
 
@@ -54,7 +66,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {

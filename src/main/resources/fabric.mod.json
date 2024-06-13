@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"io.github.scaredsmods.piratesntreasure.PiratesTreasureDataGenerator"
+		],
+		"client": [
+			"io.github.scaredsmods.piratesntreasure.PiratesNTreasureClient"
 		]
 	},
 

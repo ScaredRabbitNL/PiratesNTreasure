@@ -5,14 +5,13 @@ import io.github.scaredsmods.piratesntreasure.util.ItemRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Rarity;
 
 public class PSTItems {
 
     public static final Item PIRATE_HAT = ItemRegistry.registerItems("pirate_hat",
-            new Item(new FabricItemSettings().rarity(Rarity.COMMON)));
+            new Item(new Item.Settings().rarity(Rarity.COMMON)));
 
     public static final Item WOOD_MACHETE = ItemRegistry.registerItems("wooden_machete",
            new SwordItem(ToolMaterials.WOOD, 7, -1.5F, new FabricItemSettings()));

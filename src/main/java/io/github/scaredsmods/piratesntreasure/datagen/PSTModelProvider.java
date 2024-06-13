@@ -1,5 +1,6 @@
 package io.github.scaredsmods.piratesntreasure.datagen;
 
+import io.github.scaredsmods.piratesntreasure.block.PSTBlocks;
 import io.github.scaredsmods.piratesntreasure.item.PSTItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -15,6 +16,7 @@ public class PSTModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 
+        blockStateModelGenerator.registerSimpleCubeAll(PSTBlocks.TREASURE_BARREL);
     }
 
     @Override

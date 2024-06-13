@@ -16,8 +16,8 @@ public class PSTItemGroups {
 
     //TODO: Change the icon to pirate hat
     public static final ItemGroup PST_ITEMS = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Constants.MOD_ID, Constants.PST_G_I),
-            FabricItemGroup.builder().displayName(Text.translatable(Constants.PST_G_I_T))
+            new Identifier(Constants.MOD_ID, Constants.PIRATESNTREASURE_ITEMS_TAB),
+            FabricItemGroup.builder().displayName(Text.translatable(Constants.PIRATESNTREASURE_ITEMS_TAB_TRANSLATION))
                     .icon(() -> new ItemStack(PSTItems.DIAMOND_MACHETE)) .entries((displayContext, entries) -> {
                         entries.add(PSTItems.WOOD_MACHETE);
                         entries.add(PSTItems.STONE_MACHETE);
@@ -26,7 +26,13 @@ public class PSTItemGroups {
                         entries.add(PSTItems.DIAMOND_MACHETE);
                         entries.add(PSTItems.NETHERITE_MACHETE);
                         entries.add(PSTItems.PIRATE_HAT);
-                        entries.add(PSTBlocks.TREASURE_CHEST);
+                    }).build());
+
+    public static final ItemGroup PST_BLOCKS = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(Constants.MOD_ID, Constants.PIRATESNTREASURE_BLOCKS_TAB),
+            FabricItemGroup.builder().displayName(Text.translatable(Constants.PIRATESNTREASURE_BLOCKS_TAB_TRANSLATION))
+                    .icon(() -> new ItemStack(PSTBlocks.TREASURE_BARREL)).entries((displayContext, entries) -> {
+                        entries.add(PSTBlocks.TREASURE_BARREL);
                     }).build());
 
     public static void registerPSTItemGroups() {
